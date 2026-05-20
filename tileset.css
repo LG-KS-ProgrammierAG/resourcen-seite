@@ -1,0 +1,143 @@
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(7px); }
+}
+
+/* ── Tileset-specific theme extensions ── */
+[data-theme="dark"] {
+    --hero-dim: rgba(7, 7, 26, 0.6);
+    --hero-overlay: linear-gradient(to bottom, transparent 30%, rgba(7, 7, 26, 0.6) 100%);
+    --scroll-color: rgba(200, 190, 255, 0.65);
+    --handle: rgba(255, 255, 255, 0.1);
+    --step-label: #44447a;
+}
+
+[data-theme="light"] {
+    --hero-dim: rgba(253, 246, 227, 0.65);
+    --hero-overlay: linear-gradient(to bottom, transparent 30%, rgba(253, 246, 227, 0.65) 100%);
+    --scroll-color: rgba(7, 54, 66, 0.6);
+    --handle: rgba(0, 0, 0, 0.1);
+    --step-label: #aab5b8;
+}
+
+/* ── Base ── */
+html, body {
+    background: transparent;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ── Hero image (fixed, full screen) ── */
+.hero {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* ── First viewport ── */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 5rem;
+    background: var(--hero-overlay);
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--scroll-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: bounce 1.6s ease-in-out infinite;
+}
+
+/* ── Guide section (full-width, scrolls with card, dims sides) ── */
+.guide-section {
+    position: relative;
+    z-index: 3;
+    background: var(--hero-dim);
+    min-height: 100vh;
+    transition: background 0.4s ease;
+}
+
+/* ── Guide card (centered content area) ── */
+.guide-card {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: 24px 24px 0 0;
+    padding: 1.25rem 2rem 6rem;
+    min-height: 100vh;
+    transition: background-color 0.4s ease;
+}
+
+.guide-handle {
+    width: 36px;
+    height: 4px;
+    background: var(--handle);
+    border-radius: 2px;
+    margin: 0 auto 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+    text-shadow: var(--heading-shadow);
+    margin-bottom: 2.5rem;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+/* ── Steps ── */
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.step-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--step-label);
+}
+
+.step img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
