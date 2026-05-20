@@ -46,6 +46,52 @@
     --toggle-color: #657b83;
 }
 
+/* ── Banner ── */
+[data-theme="dark"] {
+    --banner-bg: #0e0e28;
+    --banner-border: #22224a;
+    --banner-text: #7070a8;
+    --banner-link: #8b5cf6;
+}
+
+[data-theme="light"] {
+    --banner-bg: #eee8d5;
+    --banner-border: #ccc0a0;
+    --banner-text: #7a7060;
+    --banner-link: #268bd2;
+}
+
+.banner {
+    position: fixed;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 0.85rem 1.5rem;
+    background: var(--banner-bg);
+    border: 1px solid var(--banner-border);
+    border-radius: 10px;
+    color: var(--banner-text);
+    font-size: 0.95rem;
+    white-space: nowrap;
+    text-align: center;
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.banner a {
+    color: var(--banner-link);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.2rem;
+}
+
+.banner a:hover {
+    text-decoration: underline;
+}
+
 /* ── Base ── */
 body {
     font-family: 'Space Grotesk', sans-serif;
