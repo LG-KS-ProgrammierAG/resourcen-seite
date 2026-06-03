@@ -127,12 +127,23 @@ h2 {
     gap: 0.6rem;
 }
 
+.less-gap {
+    margin-bottom: -2rem;
+}
+
 .step-label {
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--step-label);
+}
+
+p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    /*margin-bottom: 1.5rem;*/
+    transition: color 0.4s ease;
 }
 
 .step img {
